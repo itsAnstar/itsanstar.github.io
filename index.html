@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>itsAnstar</title>
+    <title>Title</title>
     <style>
         body {
             margin: 0;
@@ -15,8 +15,8 @@
 
         .input-container {
             position: relative;
+            width: 90%; /* 移动设备宽度的百分比 */
             max-width: 400px; /* 设置输入框的最大宽度 */
-            width: 90%; /* 设置移动设备时的宽度 */
         }
 
         .input-container input {
@@ -51,6 +51,10 @@
         .input-container input:not(:placeholder-shown) + label {
             transform: translateY(-20px) scale(0.9); /* 文字上浮的效果 */
             color: #007BFF; /* 获得焦点时修改文字颜色 */
+        }
+
+        .input-container input:focus + label::before {
+            content: ""; /* 清空提示文字 */
         }
 
         @media (min-width: 768px) {
