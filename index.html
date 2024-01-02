@@ -12,10 +12,13 @@
             align-items: center;
             height: 100vh;
         }
+
         .input-container {
             position: relative;
-            width: 300px; /* 设置输入框的宽度 */
+            max-width: 400px; /* 设置输入框的最大宽度 */
+            width: 90%; /* 设置移动设备时的宽度 */
         }
+
         .input-container input {
             width: 100%;
             border: none;
@@ -27,6 +30,7 @@
             line-height: 20px;
             transition: border-bottom 0.3s; /* 添加下划线过渡效果 */
         }
+
         .input-container label {
             position: absolute;
             top: 10px;
@@ -35,14 +39,25 @@
             font-weight: bold;
             color: #999; /* 提示文字颜色 */
             pointer-events: none; /* 防止遮挡输入框 */
-            transition: transform 0.3s; /* 添加浮动文字过渡效果 */
+            transform-origin: left top;
+            transition: transform 0.3s, color 0.3s; /* 添加浮动文字过渡效果 */
         }
+
         .input-container input:focus {
             border-bottom: 2px solid #007BFF; /* 获得焦点时修改下划线颜色 */
         }
+
         .input-container input:focus + label,
         .input-container input:not(:placeholder-shown) + label {
-            transform: translateY(-20px); /* 文字上浮的效果 */
+            transform: translateY(-20px) scale(0.9); /* 文字上浮的效果 */
+            color: #007BFF; /* 获得焦点时修改文字颜色 */
+        }
+
+        @media (min-width: 768px) {
+            /* 在桌面设备上的额外样式 */
+            .input-container {
+                width: 400px; /* 设置桌面设备时的宽度 */
+            }
         }
     </style>
 </head>
